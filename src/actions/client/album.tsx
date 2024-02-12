@@ -1,4 +1,4 @@
-export default async function uploadFileToS3(file, preSignedUrl) {
+export default async function uploadFileToS3(file: any, preSignedUrl: any) {
     try{
         const response = await fetch(preSignedUrl,{
             method: 'PUT',
