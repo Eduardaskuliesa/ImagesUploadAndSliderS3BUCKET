@@ -1,5 +1,5 @@
 
-import UploadFormData from "@/components/UploadFormData";
+import UploadFormData from "../components/UploadFormData";
 import Image from "next/image";
 
 export default function Home() {

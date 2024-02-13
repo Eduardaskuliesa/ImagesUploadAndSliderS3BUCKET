@@ -2,9 +2,7 @@
 
 import React from "react";
 import { useState } from "react";
-
-import { getSignedULR } from "@/utils/getSignedUrl";
-import uploadFileToS3 from "@/actions/client/album";
+import uploadFileToS3 from "../app/client/album";
 
 
 const UploadFormData = (

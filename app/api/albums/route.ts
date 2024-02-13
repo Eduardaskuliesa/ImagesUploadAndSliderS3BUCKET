@@ -1,7 +1,7 @@
 
 import { S3Client, ListObjectsCommand, PutObjectCommand } from '@aws-sdk/client-s3'
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
-import connectToDB from '@/utils/mongoose';
+import connectToDB from '../../../utils/mongoose'
 import AlbumTest from '../../../models/imageTestSchema'
 import crypto from 'crypto'
 import { NextRequest, NextResponse } from 'next/server';
