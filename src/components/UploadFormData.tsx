@@ -44,9 +44,9 @@ const UploadFormData = (
             };
             // Create presigned
             try{
-                const response = await fetch('api/albums', {
+                const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/albums`, {
                     method: 'POST',
-                    body: formData
+                    body: formData,
                 });
                 if(response.ok) {
                     console.log('Pre Signed Urls generated:' , response)

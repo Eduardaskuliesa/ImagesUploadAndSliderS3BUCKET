@@ -50,11 +50,14 @@ export const POST = async(req: NextRequest) => {
   const presignedUrls = await Promise.all(
     files.map(async (_) => {
       const FileName = generateFileName();
+
       const command = new PutObjectCommand({
         Bucket,
         Key: FileName
       });
       const url = await getSignedUrl(s3, command, {expiresIn: 3600});
+
+      
       return {
         fileName: FileName,
         url,
