@@ -24,7 +24,6 @@ const generateFileName = (bytes = 32) => crypto.randomBytes(bytes).toString('hex
 
 
 export const POST = async(req: NextRequest) => {
-   await connectToDB()
    const formData = await req.formData();
    const files = formData.getAll("file") as File[];
    const name = formData.get('name')
@@ -77,25 +76,6 @@ export const POST = async(req: NextRequest) => {
     })
   );
 
-  const album = await AlbumTest.create({
-    name,
-    date,
-    images
-  })
-
-  console.log(album)
-
    return NextResponse.json({response: presignedUrls})
 }
 
-
-export const GET = async () => {
-  try {
-    await connectToDB();
-    const albums = await AlbumTest.find().sort({ date: -1 });
-    return NextResponse.json({ albums });
-  } catch (error) {
-    console.log("album/get");
-    return NextResponse.json({ error: "Unable to Load" }, { status: 404 });
-  }
-};
